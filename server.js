@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
-const { dirname } = require("path");
-const http = require("http").Server(app);
-const porta = 3000;
 
-http.listen(porta, function () {
-  console.log("Servidor iniciado. Abra o navegador em http://localhost:3000");
-});
+app.set("view engine", "ejs");
+
+//app.set('views');
 
 app.use(express.static("public"));
+require("./app/rotas/rotas")(app);
 
-app.get("/", function (req, resp) {
-  resp.sendFile(__dirname + "/public/menu.html");
+app.listen(3000, function () {
+  console.log(
+    "Servidor iniciado. Abra o navegador clicando (ctrl + clique) no link --> http://localhost:3000"
+  );
 });
