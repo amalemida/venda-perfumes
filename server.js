@@ -1,15 +1,7 @@
-const express = require("express");
-const app = express();
-
-app.set("view engine", "ejs");
-
-//app.set('views');
-
-app.use(express.static("public"));
-require("./app/rotas/rotas")(app);
+const app = require("./src/config/meu-express");
 
 app.listen(3000, function () {
   console.log(
-    "Servidor iniciado. Abra o navegador clicando (ctrl + clique) no link --> http://localhost:3000"
+    "Servidor iniciado. Abra o navegador clicando (ctrl + clique) no link --> http://localhost:3000/menu"
   );
 });
