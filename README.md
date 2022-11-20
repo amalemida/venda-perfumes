@@ -4,7 +4,7 @@ Trabalho da disciplina Desenvolvimento de Internet II
 
 > Status do projeto: Em desenvolvimento
 > Segunda entrega 19/11/2022
-> Contempla página aberta após acesso
+> Contempla página aberta após acesso (menu), e página quem sou?
 
 Para rodar esse projeto, por favor, digite:
 
