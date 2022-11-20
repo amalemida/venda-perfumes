@@ -1,18 +1,26 @@
-module.exports = (app) => 
-{
+var sessao;
+const UsuariosController = require("../controller/usuarios_controller");
+const usuarioControlador = new UsuariosController();
+
+module.exports = (app) => {
   app.get("/acesso", (req, res) => {
-    res.render("../src/app/views/acesso");
+    usuarioControlador.exibeFormAcesso(sessao)(req, res);
   });
 
   app.get("/menu", (req, res) => {
-    res.render("../src/app/views/menu");
+    res.render("menu");
   });
 
   app.get("/quem_sou", (req, res) => {
-    res.render("../src/app/views/quem_sou");
+    res.render("quem_sou");
   });
 
   app.get("/vitrine_de_produtos", (req, res) => {
-    res.render("../src/app/views/vitrine_de_produtos");
+    res.render("vitrine_de_produtos");
+  });
+
+  app.post("/acesso", (req, res) => {
+    console.log(req.body);
+    usuarioControlador.exibeResultadoValidacaoAcesso(sessao)(req, res);
   });
 };

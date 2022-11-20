@@ -14,3 +14,7 @@ npm install
 ```
 npm start
 ```
+
+Usuário:
+email: marcia@gmail.com
+senha: acesso
