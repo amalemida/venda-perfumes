@@ -1,0 +1,28 @@
+<%- contentFor('body') %>
+<div class="container">
+  <br />
+  <h1 class="text-primary">Lista de Clientes</h1>
+  <br />
+  <table class="table" id="clientes">
+    <thead class="p-3 mb-2 bg-success text-white">
+      <tr>
+        <th class="text-warning">ID</th>
+        <th class="text-warning">NOME</th>
+        <th class="text-warning">DATA ANIVERSARIO</th>
+        <th class="text-warning">EMAIL</th>
+        <th class="text-warning">CPF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%for (cliente of clientes){%>
+      <tr>
+        <td><%= cliente.idCliente %></td>
+        <td><%= cliente.nome %></td>
+        <td><%= cliente.dataNiver %></td>
+        <td><%= cliente.email %></td>
+        <td><%= cliente.cpf %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
