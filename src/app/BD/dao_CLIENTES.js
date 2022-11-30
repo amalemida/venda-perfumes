@@ -44,8 +44,6 @@ class dao_CLIENTES {
     {
       return new Promise ((resolve,reject) => 
       {
-        //var sqlConsultaCliePorID = "SELECT * FROM CLIENTES WHERE idClie=" + id;
-        //this._db.query(sqlConsultaCliePorID,(erro,resultado) => {
         this._db.query("SELECT * FROM CLIENTES WHERE idClie=?",[id],(erro,resultado) => {
           if (erro) {
             console.log(erro);

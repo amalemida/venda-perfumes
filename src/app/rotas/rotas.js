@@ -1,9 +1,9 @@
 var sessao;
 const UsuariosController = require("../controller/usuarios_controller");
 const usuarioControlador = new UsuariosController();
-const ClientesController = require('../controller/clientes_controller');
+const ClientesController = require("../controller/clientes_controller");
 const clienteControlador = new ClientesController();
-const ProdutosController = require('../controller/produtos_controller');
+const ProdutosController = require("../controller/produtos_controller");
 const produtoControlador = new ProdutosController();
 
 module.exports = (app) => {
@@ -28,8 +28,8 @@ module.exports = (app) => {
     usuarioControlador.exibeResultadoValidacaoAcesso(sessao)(req, res);
   });
 
-  app.get('/clientes/listaEJS', clienteControlador.exibeDadosClienteEJS())
+  app.get("/clientes", clienteControlador.exibeDadosClienteEJS());
 
-  app.get('/produtos', produtoControlador.exibeDadosDosProdutosEJS())
-  app.get('/produtos/:id', produtoControlador.consultarPorIdProdutos());
+  app.get("/produtos", produtoControlador.exibeDadosDosProdutosEJS());
+  app.get("/produtos/:id", produtoControlador.consultarPorIdProdutos());
 };
