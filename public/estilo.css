@@ -135,7 +135,8 @@ nav {
   text-align: center;
 }
 .body {
- background-color: antiquewhite;
+  display: block;
+  background-color: antiquewhite;
 }
 
 .perfumes {
