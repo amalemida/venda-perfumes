@@ -1,15 +1,18 @@
 <%- contentFor('body') %>
+<head>
+  <title>Lista de Produtos</title>
+  <%- include('../views/parciais/head'); %>
+</head>
+<div>
+  <h1 class="text-primary">Vitrine de Produtos</h1>
+</div>
 <div class="container">
-  <br />
-  <h1 class="text-primary">Lista de Produtos</h1>
-  <br />
   <table class="table" id="clientes">
     <thead class="p-3 mb-2 bg-success text-white">
       <tr>
-        <th class="text-warning">ID</th>
-        <th class="text-warning">DESCRIÇÃO</th>
-        <th class="text-warning">PREÇO</th>
-        <th class="text-warning">QUANTIDADE</th>
+        <th class="text-warning">Código</th>
+        <th class="text-warning">Descrição</th>
+        <th class="text-warning">Preço</th>
       </tr>
     </thead>
     <tbody>
@@ -18,9 +21,42 @@
         <td><%= produto.idProduto %></td>
         <td><%= produto.descricao %></td>
         <td><%= produto.preco %></td>
-        <td><%= produto.quantidade %></td>
       </tr>
       <% } %>
     </tbody>
   </table>
 </div>
+<div class="perfumes">
+  <div class="div">
+    <img src="chloenomade.png" alt="Perfume Chloe Nomade" />
+
+    <button>Comprar</button>
+  </div>
+  <div class="div">
+    <input readonly />
+    <img src="diorjoy.png" alt="Perfume Dior Joy" />
+    <button>Comprar</button>
+  </div>
+  <div class="div">
+    <img src="diormiss.png" alt="Perfume Dior Miss" />
+    <button>Comprar</button>
+  </div>
+  <div class="div">
+    <img src="carolinah.png" alt="Perfume Carolina Herrera" />
+    <button>Comprar</button>
+  </div>
+  <div class="div">
+    <img src="beneton.png" alt="Perfume Beneton Masculino" />
+    <button>Comprar</button>
+  </div>
+  <div class="div">
+    <img
+      src="antoniobdiavolo.png"
+      alt="Perfume Antonio Banderas Diavolo Masculino"
+    />
+    <button>Comprar</button>
+  </div>
+</div>
+<footer>
+  <a class="link" href="menu">Voltar ao menu</a>
+</footer>

@@ -1,109 +1,114 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: rgb(240, 224, 237);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  /* background-color: rgb(240, 224, 237); */
+}
+.container-acesso {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  text-align: center;
 }
 .content {
-    background-color: #fff;
-    border-radius: 15px;
-    width: 960px;
-    height: 60%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+  background-color: #fff;
+  border-radius: 15px;
+  width: 960px;
+  height: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 .content::before {
-    content: "";
-    position: absolute;
-    background-color: #4ee1df;
-    width: 45%;
-    height: 100%;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    left: 0;
+  content: "";
+  position: absolute;
+  background-color: #4ee1df;
+  width: 45%;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  left: 0;
 }
 .title {
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: capitalize;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 .title-primary {
-    color: #fff;
+  color: #fff;
 }
 .description {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 30px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 30px;
 }
 .description-primary {
-    color: #fff;
+  color: #fff;
 }
 .description-second {
-    font-size: xx-large;
-    color: #7f8c8d;
+  font-size: xx-large;
+  color: #7f8c8d;
 }
 .btn-primary {
-    border-radius: 12px;
-    text-transform: uppercase;
-    color: rgb(26, 23, 23);
-    font-size: 10px;
-    padding: 10px 50px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 200px;
-    align-self: center;
-    border-width: 0;
-    border: 1px solid #58af9b;
-    margin-top: 1rem;
-    background-color: #63d1fd;
-    transition: background-color .5s;
+  border-radius: 12px;
+  text-transform: uppercase;
+  color: rgb(26, 23, 23);
+  font-size: 10px;
+  padding: 10px 50px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 200px;
+  align-self: center;
+  border-width: 0;
+  border: 1px solid #58af9b;
+  margin-top: 1rem;
+  background-color: #63d1fd;
+  transition: background-color 0.5s;
 }
 .btn-primary:hover {
-    background-color: #fff;
-    border: 1px solid #58af9b;
-    color: #58af9b;
+  background-color: #fff;
+  border: 1px solid #58af9b;
+  color: #58af9b;
 }
 .first-content .second-column {
-    z-index: 12;
-} 
+  z-index: 12;
+}
 .first-column {
-    text-align: center;
-    width: 50%;
-    z-index: 10;
+  text-align: center;
+  width: 50%;
+  z-index: 10;
 }
 .second-column {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    
+  display: flex;
+  flex-direction: column;
+  width: 55%;
 }
 .form input {
-    height: 45px;
-    border: none;
-    width: 100%;
-    background-color: #ecf0f1; 
+  height: 45px;
+  border: none;
+  width: 100%;
+  background-color: #ecf0f1;
 }
 .label-input {
-  background-color: #ecf0f1; 
+  background-color: #ecf0f1;
   display: flex;
   align-items: center;
   margin: 5px;
@@ -111,14 +116,17 @@ body {
 
 .menu {
   background-color: azure;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h2 {
+  padding: 150px;
+}
+h3 {
   padding: 50px;
 }
 nav {
-  font-size: large;
+  font-size: larger;
   padding: 0px 0px 0px 50px;
 }
 .div {
@@ -129,14 +137,13 @@ nav {
   height: 100px;
   display: inline-block;
 }
-
 .vitrine-second {
   margin-top: 50px;
   text-align: center;
 }
 .body {
   display: block;
-  background-color: antiquewhite;
+  background-color: azure;
 }
 
 .perfumes {
@@ -160,7 +167,6 @@ img {
 
 table {
   margin: 50px;
-
 }
 .link {
   margin-left: 50px;
@@ -170,4 +176,7 @@ p {
 }
 div {
   margin-bottom: 50px;
+}
+.acesso {
+  background-color: azure;
 }
