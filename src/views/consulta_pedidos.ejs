@@ -1,0 +1,39 @@
+<%- contentFor('body') %>
+<head>
+  <title>Meus Pedidos</title>
+  <%- include('../views/parciais/head'); %>
+</head>
+
+<h4 class="text-primary">MEUS PEDIDOS</h4>
+
+<div class="container">
+  <table class="table" id="pedidos">
+    <thead class="p-3 mb-2 bg-success text-white">
+      <tr>
+        <th class="text-warning">NÚMERO PEDIDO</th>
+        <th class="text-warning">DATA EMISSÃO</th>
+        <th class="text-warning">PRODUTO</th>
+        <th class="text-warning">QUANTIDADE</th>
+        <th class="text-warning">VALOR UNITÁRIO</th>
+        <th class="text-warning">VALOR TOTAL</th>
+        <th class="text-warning">STATUS DO PEDIDO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%for (pedido of pedidos){%>
+      <tr>
+        <td><%= pedido.idPedido %></td>
+        <td><%= pedido.dataPedido %></td>
+        <td><%= pedido.idProduto %></td>
+        <td><%= pedido.quantidade %></td>
+        <td><%= pedido.valorUnitario %></td>
+        <td><%= pedido.valorTotal %></td>
+        <td><%= pedido.idStatus %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<footer class="footer">
+  <a class="btn btn-primary" role="button" href="menu">Voltar ao menu</a>
+</footer>

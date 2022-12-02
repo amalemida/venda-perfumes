@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Quem Sou</title>
+    <title>Quem Sou?</title>
     <%- include('../views/parciais/head'); %>
   </head>
-  <body>
-    <div>
-      <h3 >Quem sou?</h3>
-      <div>
-        <img class="foto" src="fotoperfil.jpg" alt="fotoperfil"/>
-      </div>
-      <table>
-        <tr>
-          <td>RA: 22529</td>
-        </tr>
-        <tr>
-          <td>Nome: Antonio Marcelo de Almeida</td>
-        </tr>
-        <td>
-          O que você aprendeu fazendo esse projeto?
-          <li>Implementar</li>
-        </td>
-      </table>
-      <a class="link" href="menu" style="font-size: 20">Voltar ao menu</a>
+  <h4 class="text-primary">Quem Sou?</h4>
+  <body class="body-quem-sou">
+    <div class="div-perfil">
+      <img class="foto" src="fotoperfil.jpg" alt="fotoperfil" />
     </div>
+    <div>
+      <p>RA: 22529</p>
+      <p>Nome: Antonio Marcelo de Almeida</p>
+      <p>O que você aprendeu fazendo esse projeto?</p>
+      <li>
+        Aprendi que é preciso muita paciência, dedicação e persistência para
+        conseguir chegar ao fim do curso.
+      </li>
+    </div>
+    <footer class="footer">
+      <a class="btn btn-primary" href="menu" role="button">Voltar ao menu</a>
+    </footer>
   </body>
 </html>

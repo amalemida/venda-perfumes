@@ -74,7 +74,7 @@ class dao_CLIENTES {
         });
      }
 
-  dadosDosClientesEJS() 
+  dadosDosClientes() 
   {
     return new Promise((resolve,reject) =>
     { 
