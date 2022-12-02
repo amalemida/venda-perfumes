@@ -54,16 +54,21 @@ class ClientesController {
     };
   }
 
-  exibeDadosClienteEJS() {
+  exibeDadosCliente(sessao) {
     return function (req, res) {
+      sessao = req.session;
+      if (sessao.login){
       const clienteDAO = new dao_CLIENTES(db);
       clienteDAO
-        .dadosDosClientesEJS()
+        .dadosDosClientes()
         .then((resultados) => {
           console.log(resultados);
-          res.render("listaClientes", { clientes: resultados });
+          res.render("lista_clientes", { clientes: resultados });
         })
         .catch((erro) => console.log(erro));
+      } else {
+        res.redirect("acesso");
+      }
     };
   }
 

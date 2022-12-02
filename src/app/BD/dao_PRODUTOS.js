@@ -7,7 +7,7 @@ class dao_PRODUTOS {
     this._db = db;
   }
 
-  dadosDosProdutosEJS() {
+  dadosDosProdutos() {
     return new Promise((resolve, reject) => {
       var sql =
         "SELECT idProduto, descricao, quantidade, Concat('R$ ',FORMAT(preco,2, 'de_DE')) as preco FROM PRODUTOS";

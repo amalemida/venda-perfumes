@@ -39,7 +39,7 @@ class UsuariosController
             res.redirect('/menu');
           }
           else
-            res.send('Por favor, faça o ACESSO!');
+            res.send('Por favor, efetue seu LOGIN!');
         })
         .catch((mensagem) => {  
           console.log(mensagem);
