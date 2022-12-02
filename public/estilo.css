@@ -117,6 +117,8 @@ body {
 .menu {
   background-color: azure;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 50px;
+  background-image: url(fundo.png);
 }
 
 h2 {
@@ -125,9 +127,12 @@ h2 {
 h3 {
   padding: 50px;
 }
+h4 {
+  padding: 50px 0px 0px 0px;
+  text-align: center;
+}
 nav {
-  font-size: larger;
-  padding: 0px 0px 0px 50px;
+  font-size: x-large;
 }
 .div {
   margin-top: 40px;
@@ -135,7 +140,7 @@ nav {
   margin-right: 150px;
   width: 100px;
   height: 100px;
-  display: inline-block;
+  display: inline-block; */
 }
 .vitrine-second {
   margin-top: 50px;
@@ -147,16 +152,15 @@ nav {
 }
 
 .perfumes {
-  margin-left: 60px;
+  margin-left: 70px;
 }
 img {
   width: 200px;
   height: 200px;
 }
 .foto {
-  width: 200px;
-  height: 150px;
-  margin-left: 50px;
+  width: 500px;
+  height: 300px;
 }
 
 .foto:hover {
@@ -164,19 +168,16 @@ img {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
-
-table {
-  margin: 50px;
-}
-.link {
-  margin-left: 50px;
-}
-p {
-  margin: 50px;
-}
 div {
   margin-bottom: 50px;
 }
 .acesso {
+  background-color: azure;
+}
+.footer {
+  text-align: center;
+}
+.body-quem-sou {
+  text-align: center;
   background-color: azure;
 }
