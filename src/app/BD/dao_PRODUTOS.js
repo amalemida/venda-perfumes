@@ -10,7 +10,7 @@ class dao_PRODUTOS {
   dadosDosProdutos() {
     return new Promise((resolve, reject) => {
       var sql =
-        "SELECT idProduto, descricao, quantidade, Concat('R$ ',FORMAT(preco,2, 'de_DE')) as preco FROM PRODUTOS";
+        "SELECT idProduto, descricao, quantidade, Concat('R$ ',FORMAT(preco,2, 'de_DE')) as preco, img FROM PRODUTOS";
       this._db.query(sql, function (erro, recordset) {
         if (erro) {
           console.log(erro);

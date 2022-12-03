@@ -11,7 +11,7 @@ class dao_USUARIOS {
     {
       return new Promise ((resolve,reject) => 
       {
-        var sqlConsultaAcesso = "SELECT * FROM USUARIOS WHERE EMAILUSR='"+login+"' AND SENHAUSR='"+senha+"'";
+        var sqlConsultaAcesso = `SELECT * FROM USUARIOS WHERE EMAILUSR='${login}' AND SENHAUSR='${senha}'`;
         this._db.query(sqlConsultaAcesso,(erro,resultado) => {
           if (erro) {
             console.log(erro);

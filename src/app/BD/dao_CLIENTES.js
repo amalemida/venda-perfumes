@@ -22,9 +22,7 @@ class dao_CLIENTES {
     {
        return new Promise ((resolve,reject) => 
        {
-        var sqlInclui = "INSERT INTO CLIENTES (nome, cpf, dataNiver, email, idPedido, idAcesso) VALUES('" +
-           dados.nome + "','" + dados.cpf + "','" + dados.niver + "','" 
-           + dados.email + "', '" + dados.pedido + "', '" + dados.acesso + "')";
+        var sqlInclui = `INSERT INTO CLIENTES (nome, cpf, dataNiver, email, endereco) VALUES('${dados.nome}','${dados.cpf}','${dados.niver}','${dados.email}','${dados.endereco}')`;
         this._db.query(sqlInclui,function(erro) {
           if (erro) { 
             console.log(erro)
@@ -49,14 +47,11 @@ class dao_CLIENTES {
       });
     }
 
-  
     atualizaCliente(dados) 
     {
         return new Promise ((resolve,reject) => 
         {
-            var sqlAtualiza = "UPDATE CLIENTES set nome='" + dados.nome + "', cpf='" + dados.cpf + 
-            "', dataNiver='" + dados.niver + "', email='" + dados.email + "', pedido='" + dados.pedido + "', acesso='" + dados.acesso + "' where idCliente=" + 
-            dados.id;
+            var sqlAtualiza = `UPDATE CLIENTES set nome='${dados.nome}', cpf='${dados.cpf}', dataNiver='${dados.niver}', email='${dados.email}', endereco='${dados.endereco}' where idCliente=${dados.id}`;
             this._db.query(sqlAtualiza,function(erro) 
             {
               if (erro) 
@@ -73,7 +68,7 @@ class dao_CLIENTES {
   {
     return new Promise((resolve,reject) =>
     { 
-      var sql = 'SELECT idCliente, cpf, nome , email, DATE_FORMAT(dataNiver,"%d/%m/%Y") as dataNiver FROM CLIENTES';
+      var sql = 'SELECT idCliente, cpf, nome , email, DATE_FORMAT(dataNiver,"%d/%m/%Y") as dataNiver, endereco FROM CLIENTES';
       this._db.query(sql, function(erro,recordset) {
         if (erro) {
           console.log(erro);
