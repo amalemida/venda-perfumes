@@ -1,18 +1,13 @@
 class dao_CLIENTES {
-    // construtor da classe
-    // objetiva é criar a conexão com o BD
     constructor(db) {
-        // _db = atributo da classe dao_CLIENTES
-        // db = parâmetro do construtor
         this._db = db;
     }
 
-    // método que fará o SELECT da tabela CLIENTES
     excluirClientes(id) 
     {
         return new Promise((resolve,reject) => 
         {
-            var sqlDelete = "DELETE FROM CLIENTES WHERE idClie=" + id;
+            var sqlDelete = "DELETE FROM CLIENTES WHERE idCliente=" + id;
             this._db.query(sqlDelete,function(erro) {
                 if (erro) {
                    console.log(erro);
@@ -22,14 +17,14 @@ class dao_CLIENTES {
             });
         });
     }
-
+    
     incluiClientes(dados) 
     {
        return new Promise ((resolve,reject) => 
        {
-        var sqlInclui = "INSERT INTO CLIENTES (nomeClie,cpfClie,dataNiverClie,emailClie) VALUES('" +
+        var sqlInclui = "INSERT INTO CLIENTES (nome, cpf, dataNiver, email, idPedido, idAcesso) VALUES('" +
            dados.nome + "','" + dados.cpf + "','" + dados.niver + "','" 
-           + dados.email + "')";
+           + dados.email + "', '" + dados.pedido + "', '" + dados.acesso + "')";
         this._db.query(sqlInclui,function(erro) {
           if (erro) { 
             console.log(erro)
@@ -44,10 +39,10 @@ class dao_CLIENTES {
     {
       return new Promise ((resolve,reject) => 
       {
-        this._db.query("SELECT * FROM CLIENTES WHERE idClie=?",[id],(erro,resultado) => {
+        this._db.query("SELECT * FROM CLIENTES WHERE idCliente=?",[id],(erro,resultado) => {
           if (erro) {
             console.log(erro);
-            return reject('Erro no select * from clientes where idClie=X');
+            return reject('Erro no select * from clientes where idCliente=X');
           }
           resolve(resultado);
         });
@@ -59,8 +54,8 @@ class dao_CLIENTES {
     {
         return new Promise ((resolve,reject) => 
         {
-            var sqlAtualiza = "UPDATE CLIENTES set nomeClie='" + dados.nome + "', cpfClie='" + dados.cpf + 
-            "', dataNiverClie='" + dados.niver + "', emailClie='" + dados.email + "' where idClie=" + 
+            var sqlAtualiza = "UPDATE CLIENTES set nome='" + dados.nome + "', cpf='" + dados.cpf + 
+            "', dataNiver='" + dados.niver + "', email='" + dados.email + "', pedido='" + dados.pedido + "', acesso='" + dados.acesso + "' where idCliente=" + 
             dados.id;
             this._db.query(sqlAtualiza,function(erro) 
             {
