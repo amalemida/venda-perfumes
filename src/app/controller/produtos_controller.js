@@ -2,7 +2,6 @@ const dao_PRODUTOS = require("../BD/dao_PRODUTOS");
 
 // instancia da CONEXÃO com o BD
 var db = require("../../config/database");
-const { redirect } = require("express/lib/response");
 
 class ProdutosController {
   exibeDadosDosProdutos(sessao) {
@@ -13,7 +12,6 @@ class ProdutosController {
         produtoDAO
           .dadosDosProdutos()
           .then((resultados) => {
-            console.log(resultados);
             res.render("lista_produtos", { produtos: resultados });
           })
           .catch((erro) => console.log(erro));

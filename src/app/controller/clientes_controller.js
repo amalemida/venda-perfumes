@@ -9,7 +9,7 @@ class ClientesController {
         res.render("lista_clientes");
       } 
       else {
-        res.redirect("acesso");
+        res.redirect("/acesso");
       }
     };
   }
@@ -32,13 +32,13 @@ class ClientesController {
           });
       }
       else {
-        res.redirect("../acesso");
+        res.redirect("/acesso");
       }
 
     }
   }
 
-  deletarClientes() {
+  deletarClientes(sessao) {
     return function (req, res) {
       sessao = req.session;
       if (sessao.login){
@@ -56,7 +56,7 @@ class ClientesController {
           });
       }
       else {
-        res.redirect("acesso");
+        res.redirect("/acesso");
       }
 
     };
@@ -70,27 +70,27 @@ class ClientesController {
       clienteDAO
         .dadosDosClientes()
         .then((resultados) => {
-          console.log(resultados);
           res.render("lista_clientes", { clientes: resultados });
         })
         .catch((erro) => console.log(erro));
       } else {
-        res.redirect("acesso");
+        res.redirect("/acesso");
       }
     };
   }
 
-  consultarPorIdClientes() {
+  consultarPorIdClientes(sessao) {
     return function (req, res) {
+      
       sessao = req.session;
       if (sessao.login){
-        const idDoCliente = req.params.id;
+       const idDoCliente = req.params.id;
         const clienteDAO = new dao_CLIENTES(db);
         clienteDAO
           .listagemClientePorId(idDoCliente)
-          .then((resultados) => {
+          .then((dados) => {
             res.render(("atualizacao_clientes"), {
-              clientes: resultados[0],
+              cliente: dados[0],
             });
           })
           .catch((mensagem) => {
@@ -99,12 +99,12 @@ class ClientesController {
           });
       }
       else {
-        res.redirect("acesso");
+        res.redirect("/acesso");
       }
     };
   }
 
-  atualizarClientes() {
+  atualizarClientes(sessao) {
     return function (req, res) {
       sessao = req.session;
       if (sessao.login){
@@ -122,7 +122,7 @@ class ClientesController {
           });
       }
       else {
-        res.redirect("acesso");
+        res.redirect("/acesso");
       }
     };
   }

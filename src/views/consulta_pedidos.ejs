@@ -24,11 +24,12 @@
       <tr>
         <td><%= pedido.idPedido %></td>
         <td><%= pedido.dataPedido %></td>
-        <td><%= pedido.idProduto %></td>
+        <td><%= pedido.produtoDescricao %></td>
         <td><%= pedido.quantidade %></td>
         <td><%= pedido.valorUnitario %></td>
         <td><%= pedido.valorTotal %></td>
-        <td><%= pedido.idStatus %></td>
+        <td><%= pedido.statusDescricao %></td>
+        <td><i class="glyphicon glyphicon-edit"></i>&nbsp&nbsp<a href="/pedidos/deleta/<%= pedido.idPedido %>" data-type="remocao">Remover</a></td>
       </tr>
       <% } %>
     </tbody>
