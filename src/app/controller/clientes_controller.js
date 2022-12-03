@@ -1,6 +1,4 @@
 const dao_CLIENTES = require("../BD/dao_CLIENTES");
-
-// instancia da CONEXÃO com o BD
 var db = require("../../config/database");
 
 class ClientesController {
@@ -8,49 +6,59 @@ class ClientesController {
     return function (req, res) {
       sessao = req.session;
       if (sessao.login) {
-        res.marko(require("../views/clientes/inclusaoClientes.marko"));
-      } else res.write("<h1>Primeiramente, faca seu LOGIN!</h1>");
+        res.render("lista_clientes");
+      } 
+      else {
+        res.redirect("acesso");
+      }
     };
   }
 
-  // método chamará a listagemClientes enviando os dados para a interface de clientes
-  listarClientes(sessao) {
-    return function (req, res) {
+  incluirClientes(sessao) 
+  {
+    return function(req,res) {
       sessao = req.session;
       if (sessao.login) {
+        const dadosDoForm = req.body;
+        const clienteDAO = new dao_CLIENTES(db);
+        clienteDAO.incluiClientes(dadosDoForm)
+          .then((mensagem) => {  
+            console.log(mensagem);
+            res.redirect('/clientes');
+          })
+          .catch((mensagem) => {  
+            console.log(mensagem);
+            res.send(mensagem);
+          });
+      }
+      else {
+        res.redirect("../acesso");
+      }
+
+    }
+  }
+
+  deletarClientes() {
+    return function (req, res) {
+      sessao = req.session;
+      if (sessao.login){
+        const idDoCliente = req.params.id;
         const clienteDAO = new dao_CLIENTES(db);
         clienteDAO
-          .listagemClientes()
-          .then((dados) => {
-            res.marko(require("../views/clientes/listagemClientes.marko"), {
-              clientes: dados,
-              sessao: sessao,
-            });
+          .excluirClientes(idDoCliente)
+          .then((mensagem) => {
+            console.log(mensagem);
+            res.redirect("../../clientes");
           })
           .catch((mensagem) => {
             console.log(mensagem);
             res.send(mensagem);
           });
-      } else {
-        res.write("<h1>Primeiramente, faca seu LOGIN!</h1>");
       }
-    };
-  }
+      else {
+        res.redirect("acesso");
+      }
 
-  deletarClientes() {
-    return function (req, res) {
-      const idDoCliente = req.params.id;
-      const clienteDAO = new dao_CLIENTES(db);
-      clienteDAO
-        .excluirClientes(idDoCliente)
-        .then((mensagem) => {
-          console.log(mensagem);
-          res.redirect("/clientes");
-        })
-        .catch((mensagem) => {
-          console.log(mensagem);
-          res.send(mensagem);
-        });
     };
   }
 
@@ -74,55 +82,50 @@ class ClientesController {
 
   consultarPorIdClientes() {
     return function (req, res) {
-      const idDoCliente = req.params.id;
-      const clienteDAO = new dao_CLIENTES(db);
-      clienteDAO
-        .listagemClientePorId(idDoCliente)
-        .then((dados) => {
-          res.marko(require("../views/clientes/atualizacaoClientes.marko"), {
-            clientes: dados[0],
+      sessao = req.session;
+      if (sessao.login){
+        const idDoCliente = req.params.id;
+        const clienteDAO = new dao_CLIENTES(db);
+        clienteDAO
+          .listagemClientePorId(idDoCliente)
+          .then((resultados) => {
+            res.render(("atualizacao_clientes"), {
+              clientes: resultados[0],
+            });
+          })
+          .catch((mensagem) => {
+            console.log(mensagem);
+            res.send(mensagem);
           });
-        })
-        .catch((mensagem) => {
-          console.log(mensagem);
-          res.send(mensagem);
-        });
-    };
-  }
-
-  incluirClientes() {
-    return function (req, res) {
-      const dadosDoForm = req.body;
-      const clienteDAO = new dao_CLIENTES(db);
-      clienteDAO
-        .incluiClientes(dadosDoForm)
-        .then((mensagem) => {
-          console.log(mensagem);
-          res.redirect("/clientes");
-        })
-        .catch((mensagem) => {
-          console.log(mensagem);
-          res.send(mensagem);
-        });
+      }
+      else {
+        res.redirect("acesso");
+      }
     };
   }
 
   atualizarClientes() {
     return function (req, res) {
-      const dadosDoForm = req.body;
-      const clienteDAO = new dao_CLIENTES(db);
-      clienteDAO
-        .atualizaCliente(dadosDoForm)
-        .then((mensagem) => {
-          console.log(mensagem);
-          res.redirect("/clientes");
-        })
-        .catch((mensagem) => {
-          console.log(mensagem);
-          res.send(mensagem);
-        });
+      sessao = req.session;
+      if (sessao.login){
+        const dadosDoForm = req.body;
+        const clienteDAO = new dao_CLIENTES(db);
+        clienteDAO
+          .atualizaCliente(dadosDoForm)
+          .then((mensagem) => {
+            console.log(mensagem);
+            res.redirect("../../clientes");
+          })
+          .catch((mensagem) => {
+            console.log(mensagem);
+            res.send(mensagem);
+          });
+      }
+      else {
+        res.redirect("acesso");
+      }
     };
   }
-} // end da classe
+}
 
 module.exports = ClientesController;
