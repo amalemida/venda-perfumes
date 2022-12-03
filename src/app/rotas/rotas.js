@@ -22,6 +22,14 @@ module.exports = (app) => {
   });
   
   app.get("/clientes", clienteControlador.exibeDadosCliente());
+
+  app.get('/clientes/consultaPorId/:id', clienteControlador.consultarPorIdClientes());
+  
+  app.get('/clientes/deleta/:id', clienteControlador.deletarClientes());
+
+  app.get('/clientes/incluiClientes', (req,res) => {
+    res.render('inclusao_clientes');
+  });
   
   app.get("/produtos", produtoControlador.exibeDadosDosProdutos());
   
@@ -33,4 +41,9 @@ module.exports = (app) => {
     console.log(req.body);
     usuarioControlador.exibeResultadoValidacaoAcesso(sessao)(req, res);
   });
+
+  app.post('/clientes/atualiza', clienteControlador.atualizarClientes());
+
+  app.post('/clientes/incluiClientes', clienteControlador.incluirClientes());
+
 };
