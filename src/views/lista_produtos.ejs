@@ -1,4 +1,22 @@
 <%- contentFor('body') %>
+<script>
+  function criaPedido(idProduto) {
+    const quantidade = parseInt(
+      document.getElementById(`quantidade_${idProduto}`).value
+    );
+    const url = "http://localhost:3000/pedidos";
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        window.location.href = "http://localhost:3000/pedidos"; //redirect
+      }
+    };
+    xhr.send(`idProduto=${idProduto}&qde=${quantidade}`);
+  }
+</script>
 <head>
   <title>Lista de Produtos</title>
   <%- include('../views/parciais/head'); %>
@@ -6,57 +24,32 @@
 
 <h4 class="text-primary">Vitrine de Produtos</h4>
 
-<div class="container">
-  <table class="table" id="clientes">
-    <thead class="p-3 mb-2 bg-success text-white">
-      <tr>
-        <th class="text-warning">Código</th>
-        <th class="text-warning">Descrição</th>
-        <th class="text-warning">Preço</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%for (produto of produtos){%>
-      <tr>
-        <td><%= produto.idProduto %></td>
-        <td><%= produto.descricao %></td>
-        <td><%= produto.preco %></td>
-      </tr>
-      <% } %>
-    </tbody>
-  </table>
-</div>
 <div class="perfumes">
+  <%for (produto of produtos){%>
   <div class="div">
-    <img src="chloenomade.png" alt="Perfume Chloe Nomade"/>
+    <img src="<%= produto.img %>" alt="Perfume" />
     <div>
-      <p>teste</p>
+      <p>Código: <%= produto.idProduto %></p>
+      <p style="width: 50vh"><%= produto.descricao %></p>
+      <p><%= produto.preco %></p>
+      <input
+        class="btn btn-primary"
+        type="number"
+        id="quantidade_<%= produto.idProduto %>"
+        value="1"
+        min="1"
+        style="width: 100px"
+      />
     </div>
-    <button type="button" class="btn btn-success" onclick="">Comprar</button>
+    <button
+      type="button"
+      class="btn btn-success"
+      onclick="criaPedido(<%= produto.idProduto %>)"
+    >
+      Comprar
+    </button>
   </div>
-  <div class="div">
-    <img src="diorjoy.png" alt="Perfume Dior Joy" />
-    <button type="button" class="btn btn-success">Comprar</button>
-  </div>
-  <div class="div">
-    <img src="diormiss.png" alt="Perfume Dior Miss" />
-    <button type="button" class="btn btn-success">Comprar</button>
-  </div>
-  <div class="div">
-    <img src="carolinah.png" alt="Perfume Carolina Herrera" />
-    <button type="button" class="btn btn-success">Comprar</button>
-  </div>
-  <div class="div">
-    <img src="beneton.png" alt="Perfume Beneton Masculino" />
-    <button type="button" class="btn btn-success">Comprar</button>
-  </div>
-  <div class="div">
-    <img
-      src="antoniobdiavolo.png"
-      alt="Perfume Antonio Banderas Diavolo Masculino"
-    />
-    <button type="button" class="btn btn-success">Comprar</button>
-  </div>
+  <% } %>
 </div>
 <footer class="footer">
   <a class="btn btn-primary" role="button" href="menu">Voltar ao menu</a>

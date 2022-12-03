@@ -15,6 +15,7 @@
         <th class="text-warning">DATA ANIVERSARIO</th>
         <th class="text-warning">EMAIL</th>
         <th class="text-warning">CPF</th>
+        <th class="text-warning">ENDEREÇO</th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +26,9 @@
         <td><%= cliente.dataNiver %></td>
         <td><%= cliente.email %></td>
         <td><%= cliente.cpf %></td>
-      </tr>
+        <td><%= cliente.endereco %></td>
+        <td><i class="glyphicon glyphicon-edit"></i>&nbsp&nbsp<a href="/clientes/consultaPorId/<%= cliente.idCliente %>" data-type="atualizacao">Editar</a></td>
+        <td><i class="glyphicon glyphicon-edit"></i>&nbsp&nbsp<a href="/clientes/deleta/<%= cliente.idCliente %>" data-type="remocao">Remover</a></td>
       <% } %>
     </tbody>
   </table>

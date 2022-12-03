@@ -33,14 +33,19 @@ module.exports = (app) => {
   
   app.get("/produtos", produtoControlador.exibeDadosDosProdutos());
   
-  app.get("/produtos/:id", produtoControlador.consultarPorIdProdutos());
+  app.get("/produtos/consultaPorId/:id", produtoControlador.consultarPorIdProdutos());
   
   app.get("/pedidos", pedidosControlador.exibeDadosDosPedidos());
 
+  app.get('/pedidos/deleta/:id', pedidosControlador.deletarPedidos());
+
+  app.post("/pedidos", pedidosControlador.criaPedidos());
+
   app.post("/acesso", (req, res) => {
-    console.log(req.body);
     usuarioControlador.exibeResultadoValidacaoAcesso(sessao)(req, res);
   });
+
+  app.get('/clientes/deleta/:id', clienteControlador.deletarClientes());
 
   app.post('/clientes/atualiza', clienteControlador.atualizarClientes());
 
