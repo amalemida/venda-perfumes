@@ -4,11 +4,13 @@ Trabalho da disciplina Desenvolvimento de Internet II
 
 > Status do projeto: Finalizado
 
-Para rodar esse projeto, por favor, digite:
+Caso a pasta node_modules não esteja presente, por favor, digite:
 
 ```
 npm install
 ```
+
+Para rodar o projeto digite :
 ```
 npm start
 ```
