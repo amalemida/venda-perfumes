@@ -1,6 +1,5 @@
 const dao_USUARIOS = require("../BD/dao_USUARIOS");
 
-// instancia da CONEXÃO com o BD
 var db = require("../../config/database");
 
 class UsuariosController {

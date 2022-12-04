@@ -14,6 +14,8 @@ class ClientesController {
     };
   }
 
+  
+
   incluirClientes(sessao) 
   {
     return function(req,res) {
