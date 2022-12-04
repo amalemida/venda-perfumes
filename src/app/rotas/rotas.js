@@ -12,32 +12,38 @@ module.exports = (app) => {
   app.get("/acesso", (req, res) => {
     usuarioControlador.exibeFormAcesso(sessao)(req, res);
   });
-  
+
   app.get("/menu", (req, res) => {
     res.render("menu");
   });
-  
+
   app.get("/quem_sou", (req, res) => {
     res.render("quem_sou");
   });
-  
+
+  app.get("/clientes/incluiClientes", (req, res) => {
+    res.render("inclusao_clientes");
+  });
+
   app.get("/clientes", clienteControlador.exibeDadosCliente());
 
-  app.get('/clientes/consultaPorId/:id', clienteControlador.consultarPorIdClientes());
-  
-  app.get('/clientes/deleta/:id', clienteControlador.deletarClientes());
+  app.get(
+    "/clientes/consultaPorId/:id",
+    clienteControlador.consultarPorIdClientes()
+  );
 
-  app.get('/clientes/incluiClientes', (req,res) => {
-    res.render('inclusao_clientes');
-  });
-  
+  app.get("/clientes/deleta/:id", clienteControlador.deletarClientes());
+
   app.get("/produtos", produtoControlador.exibeDadosDosProdutos());
-  
-  app.get("/produtos/consultaPorId/:id", produtoControlador.consultarPorIdProdutos());
-  
+
+  app.get(
+    "/produtos/consultaPorId/:id",
+    produtoControlador.consultarPorIdProdutos()
+  );
+
   app.get("/pedidos", pedidosControlador.exibeDadosDosPedidos());
 
-  app.get('/pedidos/deleta/:id', pedidosControlador.deletarPedidos());
+  app.get("/pedidos/deleta/:id", pedidosControlador.deletarPedidos());
 
   app.post("/pedidos", pedidosControlador.criaPedidos());
 
@@ -45,10 +51,7 @@ module.exports = (app) => {
     usuarioControlador.exibeResultadoValidacaoAcesso(sessao)(req, res);
   });
 
-  app.get('/clientes/deleta/:id', clienteControlador.deletarClientes());
+  app.post("/clientes/atualiza", clienteControlador.atualizarClientes());
 
-  app.post('/clientes/atualiza', clienteControlador.atualizarClientes());
-
-  app.post('/clientes/incluiClientes', clienteControlador.incluirClientes());
-
+  app.post("/clientes/incluiClientes", clienteControlador.incluirClientes());
 };

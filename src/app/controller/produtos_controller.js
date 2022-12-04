@@ -1,6 +1,5 @@
 const dao_PRODUTOS = require("../BD/dao_PRODUTOS");
 
-// instancia da CONEXÃO com o BD
 var db = require("../../config/database");
 
 class ProdutosController {
